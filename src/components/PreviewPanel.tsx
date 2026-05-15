@@ -125,7 +125,7 @@ export default function PreviewPanel({
         >
             <div
                 ref={containerRef}
-                className={`${deviceWidthClass} transition-all duration-500 ${isFramedDevice ? 'self-center my-12 px-4 lg:px-8' : 'mt-12 mb-32 ml-4 md:ml-6 mr-auto'} h-fit min-h-[calc(100%-48px)] flex items-start justify-center relative`}
+                className={`${deviceWidthClass} transition-all duration-500 ${isFramedDevice ? 'self-center my-8 px-4 lg:px-8' : 'mt-8 mb-24 ml-4 md:ml-6 mr-auto'} h-fit min-h-[calc(100%-48px)] flex items-start justify-center relative`}
             >
                 {isFramedDevice ? (
                     <DeviceFrame
@@ -137,7 +137,7 @@ export default function PreviewPanel({
                             ref={contentRef}
                             data-testid="preview-content"
                             dangerouslySetInnerHTML={{ __html: renderedHtml }}
-                            className={`preview-content min-w-full ${previewDevice === 'mobile' ? 'px-1 pt-1 pb-8' : 'px-2 pt-2 pb-10'}`}
+                            className={`preview-content min-w-full ${previewDevice === 'mobile' ? 'px-1 pt-0.5 pb-4' : 'px-2 pt-1 pb-6'}`}
                         />
                     </DeviceFrame>
                 ) : (

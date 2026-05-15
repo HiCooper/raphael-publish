@@ -51,7 +51,7 @@ export default function ThemeSelector({ activeTheme, onThemeChange }: ThemeSelec
     }, [isThemeOpen]);
 
     // Keep top quick-switch pills fixed for best discoverability.
-    const pillThemeIds = ['modern-pro', 'apple', 'claude', 'wechat', 'sspai'];
+    const pillThemeIds = ['modern-pro', 'apple', 'wechat'];
     const pillThemes: Theme[] = pillThemeIds
         .map(id => THEMES.find(theme => theme.id === id))
         .filter((theme): theme is Theme => Boolean(theme));
@@ -164,14 +164,6 @@ export default function ThemeSelector({ activeTheme, onThemeChange }: ThemeSelec
                         </>
                     )}
                 </AnimatePresence>
-            </div>
-
-            {/* Theme description next to selectors */}
-            <div className="hidden lg:flex items-center ml-4 pl-4 border-l border-[#00000015] dark:border-[#ffffff15]">
-                <p className="text-[13px] text-[#86868b] dark:text-[#a1a1a6] font-medium tracking-wide truncate max-w-[300px] xl:max-w-[450px]">
-                    <span className="text-[#1d1d1f] dark:text-[#f5f5f7] font-semibold mr-1">{THEMES.find(t => t.id === activeTheme)?.name}：</span>
-                    {THEMES.find(t => t.id === activeTheme)?.description}
-                </p>
             </div>
         </div>
     );
