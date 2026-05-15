@@ -159,6 +159,12 @@ export function applyTheme(html: string, themeId: string) {
         });
     });
 
+    // Override p margin-bottom inside blockquote
+    doc.querySelectorAll('blockquote p').forEach(p => {
+        const currentStyle = p.getAttribute('style') || '';
+        p.setAttribute('style', currentStyle + '; margin-bottom: 0 !important;');
+    });
+
     // Tailwind preflight removes native list markers. Restore explicit markers.
     doc.querySelectorAll('ul').forEach(ul => {
         const currentStyle = ul.getAttribute('style') || '';
