@@ -51,7 +51,7 @@ export default function ThemeSelector({ activeTheme, onThemeChange }: ThemeSelec
     }, [isThemeOpen]);
 
     // Keep top quick-switch pills fixed for best discoverability.
-    const pillThemeIds = ['apple', 'claude', 'wechat', 'sspai'];
+    const pillThemeIds = ['modern-pro', 'apple', 'claude', 'wechat', 'sspai'];
     const pillThemes: Theme[] = pillThemeIds
         .map(id => THEMES.find(theme => theme.id === id))
         .filter((theme): theme is Theme => Boolean(theme));

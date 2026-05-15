@@ -16,3 +16,8 @@ export const THEME_GROUPS: ThemeGroup[] = [
   { label: '潮流', themes: modernThemes },
   { label: '更多风格', themes: extraThemes },
 ];
+
+export const MODERN_THEMES_WITH_PREMIER: Theme[] = [
+  ...modernThemes,
+  ...extraThemes.slice(-1), // Add modern-pro as first in a new "premier" section or merge into modern
+];
