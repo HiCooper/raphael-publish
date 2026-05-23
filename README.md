@@ -2,7 +2,7 @@
 
 专为**微信公众号**与**内容创作者**打造的现代 Markdown 排版引擎。
 
-> **在线体验**：[https://publish.raphael.app](https://publish.raphael.app)
+> **在线体验**：[https://hicooper.github.io/raphael-publish/](https://hicooper.github.io/raphael-publish/)
 
 ![Raphael Publish 截图](media/screenshot.png)
 
