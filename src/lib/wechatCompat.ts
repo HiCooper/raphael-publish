@@ -116,7 +116,7 @@ export async function makeWeChatCompatible(html: string, themeId: string): Promi
             ['P', 'DIV', 'UL', 'OL', 'BLOCKQUOTE'].includes(child.tagName)
         );
         if (hasBlockChildren) {
-            // We only want to clean inner tags if it's overly complex, 
+            // We only want to clean inner tags if it's overly complex,
             // but flattening everything might kill <strong> or <em>.
             // Let's just strip 'p' inside 'li' by replacing <p> with <span>
             const ps = li.querySelectorAll('p');
@@ -157,7 +157,15 @@ export async function makeWeChatCompatible(html: string, themeId: string): Promi
             currentStyle += ` font-size: ${sizeMatch[1]};`;
         }
         if (colorMatch && !currentStyle.includes('color:')) {
-            currentStyle += ` color: ${colorMatch[1]};`;
+            // Don't override color for spans inside inline formatting elements
+            // that already have their own text color (e.g. <strong>).
+            const parent = node.parentElement;
+            const parentTag = parent?.tagName || '';
+            const parentStyle = parent?.getAttribute('style') || '';
+            const isInsideColoredInline = ['STRONG', 'B', 'EM', 'A', 'CODE'].includes(parentTag) && parentStyle.includes('color:');
+            if (!isInsideColoredInline) {
+                currentStyle += ` color: ${colorMatch[1]};`;
+            }
         }
 
         node.setAttribute('style', currentStyle.trim());
@@ -199,7 +207,7 @@ export async function makeWeChatCompatible(html: string, themeId: string): Promi
     // Prevent WeChat from breaking lines between inline emphasis and leading CJK punctuation.
     // Example: </strong>： should stay on the same line.
     let outputHtml = doc.body.innerHTML;
-    outputHtml = outputHtml.replace(/(<\/(?:strong|b|em|span|a|code)>)\s*([：；，。！？、])/g, '$1\u2060$2');
+    outputHtml = outputHtml.replace(/(<\/(?:strong|b|em|span|a|code)>)\s*([：；，。！？、])/g, '$1⁠$2');
 
     return outputHtml;
 }

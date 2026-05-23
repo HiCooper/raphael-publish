@@ -19,9 +19,7 @@ export const md = new MarkdownIt({
             codeContent = md.utils.escapeHtml(str);
         }
 
-        const dots = '<div style="margin-bottom: 12px; white-space: nowrap;"><span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #ff5f56; margin-right: 6px;"></span><span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e; margin-right: 6px;"></span><span style="display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></span></div>';
-
-        return `<pre>${dots}<code class="hljs">${codeContent}</code></pre>`;
+        return `<pre><code class="hljs">${codeContent}</code></pre>`;
     }
 });
 
@@ -162,7 +160,7 @@ export function applyTheme(html: string, themeId: string) {
     // Override p margin-bottom inside blockquote
     doc.querySelectorAll('blockquote p').forEach(p => {
         const currentStyle = p.getAttribute('style') || '';
-        p.setAttribute('style', currentStyle + '; margin-bottom: 0 !important;');
+        p.setAttribute('style', currentStyle + '; margin-top: 0 !important; margin-bottom: 0 !important;');
     });
 
     // Tailwind preflight removes native list markers. Restore explicit markers.
