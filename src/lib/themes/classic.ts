@@ -19,7 +19,7 @@ export const classicThemes: Theme[] = [
       ul: 'margin: 16px 0; padding-left: 28px;',
       ol: 'margin: 16px 0; padding-left: 28px;',
       li: 'margin: 10px 0; line-height: 1.8 !important; color: #1a1a1a !important;',
-      blockquote: 'margin: 24px 0; padding: 2px 15px; background-color: #f8f9fc !important; border-left: 4px solid #CCC; color: #444444 !important; border-radius: 0 8px 8px 0;',
+      blockquote: 'margin: 24px 0; padding: 10px 16px; background-color: #f8f9fc !important; border-left: 4px solid #CCC; color: #444444 !important; border-radius: 0 8px 8px 0;',
       code: 'font-family: "SF Mono", "Menlo", Consolas, monospace; padding: 3px 8px; background-color: #f0f5ff !important; color: #4A90D9 !important; border-radius: 4px; font-size: 14px !important; line-height: 1.5 !important;',
       pre: 'margin: 24px 0; background-color: #f8f9fc !important; border-radius: 12px; overflow-x: auto; font-size: 14px !important; line-height: 1.6 !important; border: 1px solid #e8eef8;',
       hr: 'margin: 40px auto; border: none; height: 1px; background: linear-gradient(90deg, transparent, #4A90D9, transparent) !important; width: 60%;',
